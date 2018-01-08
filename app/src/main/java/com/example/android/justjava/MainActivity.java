@@ -100,7 +100,12 @@ public class MainActivity extends AppCompatActivity {
          */
     private void createOrderSummary(int number, boolean hasWhipped, boolean hasChoco, String editText) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        String emailBody = ("Name: "+ editText +"\nAdd whipped cream? " + hasWhipped + "\nAdd chocolate? " + hasChoco + "\nQuantity: " + quantity + "\nTotal: " + NumberFormat.getCurrencyInstance().format(number) + "\nThank you!");
+        String emailBody = ("Name: "+ editText +
+                "\nAdd whipped cream? " + hasWhipped +
+                "\nAdd chocolate? " + hasChoco +
+                "\nQuantity: " + quantity +
+                "\nTotal: " + NumberFormat.getCurrencyInstance().format(number) +
+                "\nThank you!");
         composeEmail("Order Summary", emailBody);
     }
 

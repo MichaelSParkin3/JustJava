@@ -5,6 +5,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8BBD0"
     android:orientation="vertical">
 
     <EditText
@@ -16,11 +17,8 @@
         android:layout_marginBottom="16dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="Toppings"
-        android:textAllCaps="true" />
+        style="@style/HeaderTextStyle" />
 
     <CheckBox
         android:id="@+id/whippedCheckBox"
@@ -41,11 +39,8 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="Quantity"
-        android:textAllCaps="true" />
+        style="@style/HeaderTextStyle" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,11 +75,8 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="order summary"
-        android:textAllCaps="true" />
+        style="@style/HeaderTextStyle" />
 
     <TextView
         android:id="@+id/price_text_view"
