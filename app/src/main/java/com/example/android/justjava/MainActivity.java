@@ -10,6 +10,8 @@ package com.example.android.justjava;
 
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -98,6 +100,23 @@ public class MainActivity extends AppCompatActivity {
          */
     private void createOrderSummary(int number, boolean hasWhipped, boolean hasChoco, String editText) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText("Name: "+ editText +"\nAdd whipped cream? " + hasWhipped + "\nAdd chocolate? " + hasChoco + "\nQuantity: " + quantity + "\nTotal: " + NumberFormat.getCurrencyInstance().format(number) + "\nThank you!");
+        String emailBody = ("Name: "+ editText +"\nAdd whipped cream? " + hasWhipped + "\nAdd chocolate? " + hasChoco + "\nQuantity: " + quantity + "\nTotal: " + NumberFormat.getCurrencyInstance().format(number) + "\nThank you!");
+        composeEmail("Order Summary", emailBody);
     }
+
+    /**
+     *
+     * @param subject = The subject title of the email " Order Summary "
+     * @param body = The entire order summary to be in the actual body of the email.
+     */
+    public void composeEmail(String subject, String body) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
 }
